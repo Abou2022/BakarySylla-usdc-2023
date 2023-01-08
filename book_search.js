@@ -259,3 +259,22 @@ if (JSON.stringify(DifferentBookOut) === JSON.stringify(test6result)) {
 }
 
 //TODO Case sensitive test
+const test7result = findSearchTermInBooks("own", twentyLeaguesIn);
+const test8result = findSearchTermInBooks("Own", twentyLeaguesIn);
+if (test7result.Results.length == 1 && test8result.Results.length == 0) {
+  console.log("PASS: Test 7");
+} else {
+  console.log("FAIL: Test 7");
+  console.log(
+    "Expected:",
+    twentyLeaguesOut.Results.length,
+    "for lower-case own and 0 for upper-case Own"
+  );
+  console.log(
+    "Received:",
+    test7result.Results.length,
+    "for lower-case own ",
+    test8result.Results.length,
+    "for upper-case Own"
+  );
+}

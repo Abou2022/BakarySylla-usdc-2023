@@ -125,13 +125,29 @@ if (test2result.Results.length == 1) {
 }
 
 //TODO: Negative check for a word no match with output object
+const test3result = findSearchTermInBooks("game", twentyLeaguesIn);
+if (test3result.Results.length == 0) {
+  console.log("PASS: Test 3");
+} else {
+  console.log("FAIL: Test 3");
+  console.log("Expected:", twentyLeaguesOut.Results.length);
+  console.log("Received:", test3result.Results.length);
+}
 
 //TODO: Positive check for a word in two different line
+const test4result = findSearchTermInBooks("and", twentyLeaguesIn);
+if (test4result.Results.length == 2) {
+  console.log("PASS: Test 4");
+} else {
+  console.log("FAIL: Test 4");
+  console.log("Expected:", twentyLeaguesOut.Results.length);
+  console.log("Received:", test4result.Results.length);
+}
 
 //TODO: Positive test search partial world
 
 //TODO Test for different books
 
-//TODO: output object with multiple books
+//TODO: output object with different books
 
 //TODO Positive test for input object of different book

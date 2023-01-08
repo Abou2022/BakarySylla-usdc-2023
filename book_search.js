@@ -28,13 +28,26 @@ function findSearchTermInBooks(searchTerm, scannedTextObj) {
   };
 
   // TODO: access to each book by using .forEach to itiraite to the JSON
+  Object.keys(scannedTextObj).forEach((books) => {
+    // Let store scannedTextObj[books].Content object to myBook
+    let myBook = scannedTextObj[books].Content;
 
-  //TODO: check if we have match
-
-  //TODO: Push each element into to the  array
+    //TODO check if we have match
+    Object.keys(myBook).forEach((textLine) => {
+      //TODO: Push each element into to the  array
+      if (myBook[textLine].Text.search(searchTerm) != -1) {
+        result.Results.push({
+          ISBN: scannedTextObj[books].ISBN,
+          Page: scannedTextObj[books].Content[textLine].Page,
+          Line: scannedTextObj[books].Content[textLine].Line,
+        });
+      }
+    });
+  });
 
   //TODO return the searchTerm
-
+  result.SearchTerm = searchTerm;
+  console.log(result.SearchTerm);
   return result;
 }
 

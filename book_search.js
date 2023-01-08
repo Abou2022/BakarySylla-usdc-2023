@@ -27,6 +27,14 @@ function findSearchTermInBooks(searchTerm, scannedTextObj) {
     Results: [],
   };
 
+  // TODO: access to each book by using .forEach to itiraite to the JSON
+
+  //TODO: check if we have match
+
+  //TODO: Push each element into to the  array
+
+  //TODO return the searchTerm
+
   return result;
 }
 
@@ -102,3 +110,15 @@ if (test2result.Results.length == 1) {
   console.log("Expected:", twentyLeaguesOut.Results.length);
   console.log("Received:", test2result.Results.length);
 }
+
+//TODO: Negative check for a word no match with output object
+
+//TODO: Positive check for a word in two different line
+
+//TODO: Positive test search partial world
+
+//TODO Test for different books
+
+//TODO: output object with multiple books
+
+//TODO Positive test for input object of different book

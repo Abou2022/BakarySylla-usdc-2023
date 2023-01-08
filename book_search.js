@@ -145,9 +145,117 @@ if (test4result.Results.length == 2) {
 }
 
 //TODO: Positive test search partial world
+const test5result = findSearchTermInBooks("manag", twentyLeaguesIn);
+if (test5result.Results.length == 1) {
+  console.log("PASS: Test 5");
+} else {
+  console.log("FAIL: Test 5");
+  console.log("Expected:", twentyLeaguesOut.Results.length);
+  console.log("Received:", test5result.Results.length);
+}
 
 //TODO Test for different books
+const DifferentBookIn = [
+  {
+    Title: "Twenty Thousand Leagues Under the Sea",
+    ISBN: "9780000528531",
+    Content: [
+      {
+        Page: 31,
+        Line: 8,
+        Text: "now simply went on by her own momentum.  The dark-",
+      },
+      {
+        Page: 31,
+        Line: 9,
+        Text: "ness was then profound; and however good the Canadian's",
+      },
+      {
+        Page: 31,
+        Line: 10,
+        Text: "eyes were, I asked myself how he had managed to see, and",
+      },
+    ],
+  },
+  {
+    Title: "Welcome to Home",
+    ISBN: "9780000528532",
+    Content: [
+      {
+        Page: 70,
+        Line: 25,
+        Text: "A graphic novel or comic book.",
+      },
+      {
+        Page: 70,
+        Line: 30,
+        Text: "A journal written by a 15 year old; he was happy",
+      },
+      {
+        Page: 70,
+        Line: 32,
+        Text: "A series of photographs.",
+      },
+    ],
+  },
+  {
+    Title: "Importance of Media",
+    ISBN: "9780000528533",
+    Content: [
+      {
+        Page: 90,
+        Line: 11,
+        Text: "Media are essential to our everyday life.",
+      },
+      {
+        Page: 90,
+        Line: 12,
+        Text: "The development of the Internet and mobile communications",
+      },
+      {
+        Page: 90,
+        Line: 15,
+        Text: "A specific example of media from that nation  ",
+      },
+    ],
+  },
+];
 
 //TODO: output object with different books
+const DifferentBookOut = {
+  SearchTerm: "A",
+  Results: [
+    {
+      ISBN: "9780000528532",
+      Page: 70,
+      Line: 25,
+    },
+    {
+      ISBN: "9780000528532",
+      Page: 70,
+      Line: 30,
+    },
+    {
+      ISBN: "9780000528532",
+      Page: 70,
+      Line: 32,
+    },
+    {
+      ISBN: "9780000528533",
+      Page: 90,
+      Line: 15,
+    },
+  ],
+};
 
 //TODO Positive test for input object of different book
+const test6result = findSearchTermInBooks("A", DifferentBookIn);
+if (JSON.stringify(DifferentBookOut) === JSON.stringify(test6result)) {
+  console.log("PASS: Test 6");
+} else {
+  console.log("FAIL: Test 6");
+  console.log("Expected:", DifferentBookOut);
+  console.log("Received:", test6result);
+}
+
+//TODO Case sensitive test
